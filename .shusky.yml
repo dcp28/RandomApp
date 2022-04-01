@@ -1,0 +1,11 @@
+pre-commit:
+    - swift-run:
+        command: swiftformat .
+        configuration: release
+        package-path: BuildTools
+    - swift-run:
+        command: swiftlint lint --strict .
+        configuration: release
+        package-path: BuildTools
+        verbose: false
+        critical: true
