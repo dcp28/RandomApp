@@ -5,3 +5,9 @@ line_length:
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - BuildTools
   - .idea
+identifier_name:
+  excluded:
+    - id
+type_name:
+  excluded:
+    - ID
