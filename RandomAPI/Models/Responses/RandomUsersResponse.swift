@@ -9,8 +9,8 @@ import Foundation
 
 // MARK: - RandomUserResponse
 
-struct RandomUserResponse: Codable, Equatable {
-    let results: [Result]
+public struct RandomUserResponse: Codable, Equatable {
+    public let results: [Result]
     let info: Info
 }
 

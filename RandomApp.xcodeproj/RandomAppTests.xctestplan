@@ -1,0 +1,33 @@
+{
+  "configurations" : [
+    {
+      "id" : "096F2291-CA1C-4EAE-A8B8-CDC8C7B124F5",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:RandomApp.xcodeproj",
+        "identifier" : "2E25E34027F7BB48002B3AD0",
+        "name" : "RandomAppTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:RandomApp.xcodeproj",
+        "identifier" : "2E25E36B27F842CA002B3AD0",
+        "name" : "RandomAPITests"
+      }
+    }
+  ],
+  "version" : 1
+}

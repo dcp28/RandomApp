@@ -13,8 +13,8 @@ public protocol EnvironmentProtocol {
 
 struct RandomAPIEnvironment: EnvironmentProtocol {
     let baseURL: String
-    init(enviroment: RandomAPIEnvironments) {
-        baseURL = enviroment.rawValue
+    init(environment: RandomAPIEnvironments) {
+        baseURL = environment.rawValue
     }
 }
 

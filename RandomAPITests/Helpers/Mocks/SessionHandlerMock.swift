@@ -9,13 +9,16 @@ import Foundation
 @testable import RandomAPI
 
 final class SessionHandlerMock: SessionHandler {
-    var requestUrlSpy = Spy<URLRequest>()
-    var requestStub = (Data(), URLResponse(
+    private static let urlResponse = URLResponse(
         url: URL(string: "http://default.com")!,
         mimeType: nil,
         expectedContentLength: 0,
         textEncodingName: nil
-    ))
+    )
+    var requestUrlSpy = Spy<URLRequest>()
+    var requestStub = (Data(), SessionHandlerMock.urlResponse)
+
+    var downloadStub = (URL(string: "http://default.com")!, SessionHandlerMock.urlResponse)
 
     func request(url: URLRequest) async throws -> (Data, URLResponse) {
         requestUrlSpy.setCalled()

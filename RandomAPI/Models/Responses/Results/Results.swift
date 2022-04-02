@@ -58,5 +58,5 @@ public struct Name: Codable, Equatable {
 // MARK: - Picture
 
 public struct Picture: Codable, Equatable {
-    let large, medium, thumbnail: String
+    public let large, medium, thumbnail: String
 }
