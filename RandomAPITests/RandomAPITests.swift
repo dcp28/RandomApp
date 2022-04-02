@@ -1,5 +1,5 @@
 //
-//  RandomUsersRequest.swift
+//  RandomAPITests.swift
 //  RandomAPITests
 //
 //  Created by Random Inc. on 2/4/22.
@@ -9,7 +9,7 @@ import Foundation
 @testable import RandomAPI
 import XCTest
 
-final class RandomUsersRequest: XCTestCase {
+final class RandomAPITests: XCTestCase {
     private let sessionMock = SessionHandlerMock()
     private let urlResponse = URLResponse(
         url: URL(string: "http://empty.com")!, mimeType: nil, expectedContentLength: 0, textEncodingName: nil
@@ -84,11 +84,70 @@ final class RandomUsersRequest: XCTestCase {
         XCTAssertEqual(results.count, 1)
     }
 
-    func testFetch() async throws {
-        let randomAPI = RandomAPI(environment: .pro)
+    func testFetchUsers_failsWithBadResponse() async throws {
+        // MARK: Given
 
-        let results = try await randomAPI.fetchUsers()
+        let httpResponse = HTTPURLResponse(
+            url: URL(string: "http://bad.com")!,
+            statusCode: 400,
+            httpVersion: nil,
+            headerFields: nil
+        )
 
-        print(results)
+        sessionMock.requestStub = (Data(), httpResponse!)
+
+        // MARK: When
+
+        do {
+            _ = try await randomAPI.fetchUsers()
+        } catch {
+            if let error = error as? RandomAPIError {
+                XCTAssertTrue(error == .badResponse(code: 400))
+                return
+            }
+        }
+
+        XCTFail("Must fail with badResponse")
+    }
+
+    func testDownloadImage_successFully() async throws {
+        // MARK: Given
+
+        let expectedData = "hello".data(using: .utf8)!
+        sessionMock.requestStub = (expectedData, urlResponse)
+
+        // MARK: When
+
+        let imagePath: Data = try await randomAPI.downloadImage(from: URL(string: "https://image.com/downloads/img.jpg")!)
+
+        // MARK: Then
+
+        XCTAssertEqual(imagePath, expectedData)
+    }
+
+    func testDownloadImage_failsWithBadResponse() async throws {
+        // MARK: Given
+
+        let httpResponse = HTTPURLResponse(
+            url: URL(string: "http://bad.com")!,
+            statusCode: 400,
+            httpVersion: nil,
+            headerFields: nil
+        )
+
+        sessionMock.requestStub = (Data(), httpResponse!)
+
+        // MARK: When
+
+        do {
+            _ = try await randomAPI.downloadImage(from: URL(string: "hi")!)
+        } catch {
+            if let error = error as? RandomAPIError {
+                XCTAssertTrue(error == .badResponse(code: 400))
+                return
+            }
+        }
+
+        XCTFail("Must fail with badResponse")
     }
 }
