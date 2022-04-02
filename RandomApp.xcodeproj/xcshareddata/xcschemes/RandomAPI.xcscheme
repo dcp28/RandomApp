@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2E25E33027F7BB48002B3AD0"
-               BuildableName = "RandomApp.app"
-               BlueprintName = "RandomApp"
+               BlueprintIdentifier = "2E25E36227F842CA002B3AD0"
+               BuildableName = "RandomAPI.framework"
+               BlueprintName = "RandomAPI"
                ReferencedContainer = "container:RandomApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,28 +26,9 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2E25E34027F7BB48002B3AD0"
-               BuildableName = "RandomAppTests.xctest"
-               BlueprintName = "RandomAppTests"
-               ReferencedContainer = "container:RandomApp.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2E25E34A27F7BB48002B3AD0"
-               BuildableName = "RandomAppUITests.xctest"
-               BlueprintName = "RandomAppUITests"
-               ReferencedContainer = "container:RandomApp.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
@@ -70,16 +51,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2E25E33027F7BB48002B3AD0"
-            BuildableName = "RandomApp.app"
-            BlueprintName = "RandomApp"
-            ReferencedContainer = "container:RandomApp.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -87,16 +58,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2E25E33027F7BB48002B3AD0"
-            BuildableName = "RandomApp.app"
-            BlueprintName = "RandomApp"
+            BlueprintIdentifier = "2E25E36227F842CA002B3AD0"
+            BuildableName = "RandomAPI.framework"
+            BlueprintName = "RandomAPI"
             ReferencedContainer = "container:RandomApp.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
