@@ -12,7 +12,7 @@ enum DefaultStoreMockError: Error {
     case elementNotStored
 }
 
-final class DefaultStoreMock: Storable {
+final class DefaultStoreMock: FileSystemStorable {
     var spySaveElement = Spy<(Data, URL)>()
     var stubStoredElement: Data?
 

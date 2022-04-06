@@ -16,7 +16,8 @@ class UserListViewModel: ObservableObject {
     func fetchUsersData() async throws {
         let service = ServiceUserFetcher(
             apiService: randomAPI,
-            imageServiceFetcher: ServiceImageFetcher(apiService: randomAPI)
+            imageServiceFetcher: ServiceImageFetcher(apiService: randomAPI),
+            store: UserPersistentDBStorer(context: PersistenceDBStorerContainer.shared.context)
         )
         let users = try await service.getUsers()
         DispatchQueue.main.async {

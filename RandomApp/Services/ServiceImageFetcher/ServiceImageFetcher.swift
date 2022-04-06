@@ -28,11 +28,11 @@ final class ServiceImageFetcher: ServiceImageFetchable {
         defaultSystemPath.getFilePath()
     }
 
-    private let store: Storable
+    private let store: FileSystemStorable
 
     init(
         apiService: RandomAPIProtocol,
-        store: Storable = DefaultStore()
+        store: FileSystemStorable = DefaultStore()
     ) {
         self.apiService = apiService
         self.store = store
