@@ -18,39 +18,51 @@ enum ServiceUserFetcherError: Error {
 class ServiceUserFetcher: ServiceUserFetchable {
     private let apiService: RandomAPIProtocol
     private let imageServiceFetcher: ServiceImageFetchable
+    private let store: UserPersistentDBStorable
 
     init(
         apiService: RandomAPIProtocol,
-        imageServiceFetcher: ServiceImageFetchable
+        imageServiceFetcher: ServiceImageFetchable,
+        store: UserPersistentDBStorable
     ) {
         self.apiService = apiService
         self.imageServiceFetcher = imageServiceFetcher
+        self.store = store
     }
 
     func getUsers() async throws -> [User] {
         let results = try await apiService.fetchUsers()
 
         var users: [User] = []
-        for result in results {
-            let data = try await imageServiceFetcher.getImage(from: URL(string: result.picture.medium)!)
 
-            let image: Image
-            if let uiImage = UIImage(data: data) {
-                image = Image(uiImage: uiImage)
-            } else {
-                image = Image("slenderman")
-            }
+        if try store.isUsersEntityEmpty() {
+            print("Local storage is emnpty")
+            try store.saveUsers(results: results)
+        }
 
-            users.append(
-                User(
-                    fullName: result.name.first + " " + result.name.last,
-                    picture: image,
-                    email: result.email,
-                    phone: result.phone
-                )
-            )
+        let userCDS = try store.loadRangeOfUsers(from: 0, to: 10)
+
+        for userCD in userCDS {
+            await users.append(getUser(from: userCD))
         }
 
         return users
+    }
+
+    private func getUser(from userCD: UserCD) async -> User {
+        let image: Image
+
+        if let imgURL = userCD.pictureMedium, let data = try? await imageServiceFetcher.getImage(from: imgURL), let uiImage = UIImage(data: data) {
+            image = Image(uiImage: uiImage)
+        } else {
+            image = Image("slenderman")
+        }
+
+        return User(
+            fullName: "\(userCD.firstName ?? "Slenderman") \(userCD.lastName ?? "")",
+            picture: image,
+            email: userCD.email ?? "slenderman@example.com",
+            phone: userCD.phone ?? "123456"
+        )
     }
 }

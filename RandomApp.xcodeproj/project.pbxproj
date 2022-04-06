@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		2E11717B27F8C4A300B7ED02 /* Spy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E11717A27F8C4A300B7ED02 /* Spy.swift */; };
 		2E11717E27F9201A00B7ED02 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E11717D27F9201A00B7ED02 /* UserListViewModel.swift */; };
+		2E132AB827FE073F00F9EF1C /* UserAppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E132AB627FE073F00F9EF1C /* UserAppModel.xcdatamodeld */; };
+		2E132AC227FE0C7300F9EF1C /* UserCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E132AC027FE0C7300F9EF1C /* UserCD+CoreDataClass.swift */; };
+		2E132AC327FE0C7300F9EF1C /* UserCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E132AC127FE0C7300F9EF1C /* UserCD+CoreDataProperties.swift */; };
+		2E132AC727FE0E5800F9EF1C /* PersistenceDBStorerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E132AC627FE0E5800F9EF1C /* PersistenceDBStorerContainer.swift */; };
+		2E1B974D27FF6DA000179BAB /* UserPersistentDBStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1B974C27FF6DA000179BAB /* UserPersistentDBStorable.swift */; };
 		2E22430827FCC5D7004804CA /* ServiceImageFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E22430727FCC5D7004804CA /* ServiceImageFetchable.swift */; };
 		2E22430A27FCC5FE004804CA /* ServiceImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E22430927FCC5FE004804CA /* ServiceImageFetcher.swift */; };
 		2E22430C27FCC618004804CA /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E22430B27FCC618004804CA /* String+MD5.swift */; };
@@ -17,7 +22,7 @@
 		2E22431527FCCB73004804CA /* Spy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E11717A27F8C4A300B7ED02 /* Spy.swift */; };
 		2E22431727FCCE7D004804CA /* pixels.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2E22431627FCCE7D004804CA /* pixels.jpeg */; };
 		2E22431A27FCD0AA004804CA /* DefaultStoreMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E22431927FCD0AA004804CA /* DefaultStoreMock.swift */; };
-		2E22431C27FCD2E7004804CA /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E22431B27FCD2E7004804CA /* Storable.swift */; };
+		2E22431C27FCD2E7004804CA /* FileSystemStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E22431B27FCD2E7004804CA /* FileSystemStorable.swift */; };
 		2E22432027FCEA4D004804CA /* ServiceUserFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E22431F27FCEA4D004804CA /* ServiceUserFetcherTests.swift */; };
 		2E22432227FCEAAE004804CA /* ImageServiceFetcherMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E22432127FCEAAE004804CA /* ImageServiceFetcherMock.swift */; };
 		2E22432327FCF045004804CA /* RandomUsers.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E25E39F27F88759002B3AD0 /* RandomUsers.json */; };
@@ -46,6 +51,8 @@
 		2E25E39A27F869AA002B3AD0 /* RandomAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E25E39927F869AA002B3AD0 /* RandomAPITests.swift */; };
 		2E25E39D27F87EF1002B3AD0 /* RandomUsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E25E39C27F87EF1002B3AD0 /* RandomUsersResponse.swift */; };
 		2E25E3A227F88992002B3AD0 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E25E3A127F88992002B3AD0 /* JSONReader.swift */; };
+		2E5C723127FF894000F60021 /* UserPersistentDBStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C723027FF894000F60021 /* UserPersistentDBStorable.swift */; };
+		2E5C723327FF8ADF00F60021 /* BaseDBFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C723227FF8ADF00F60021 /* BaseDBFetcher.swift */; };
 		2E6ED0F027F991AA004C6ADA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6ED0EF27F991AA004C6ADA /* User.swift */; };
 		2E6ED0F227F99227004C6ADA /* UserCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6ED0F127F99227004C6ADA /* UserCellView.swift */; };
 		2E75FE3727FA4638005652BD /* ServiceUserFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E75FE3627FA4638005652BD /* ServiceUserFetchable.swift */; };
@@ -111,6 +118,11 @@
 /* Begin PBXFileReference section */
 		2E11717A27F8C4A300B7ED02 /* Spy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spy.swift; sourceTree = "<group>"; };
 		2E11717D27F9201A00B7ED02 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		2E132AB727FE073F00F9EF1C /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		2E132AC027FE0C7300F9EF1C /* UserCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserCD+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E132AC127FE0C7300F9EF1C /* UserCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2E132AC627FE0E5800F9EF1C /* PersistenceDBStorerContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceDBStorerContainer.swift; sourceTree = "<group>"; };
+		2E1B974C27FF6DA000179BAB /* UserPersistentDBStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPersistentDBStorable.swift; sourceTree = "<group>"; };
 		2E22430727FCC5D7004804CA /* ServiceImageFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceImageFetchable.swift; sourceTree = "<group>"; };
 		2E22430927FCC5FE004804CA /* ServiceImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceImageFetcher.swift; sourceTree = "<group>"; };
 		2E22430B27FCC618004804CA /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
@@ -118,7 +130,7 @@
 		2E22431127FCC930004804CA /* RandomAPIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAPIMock.swift; sourceTree = "<group>"; };
 		2E22431627FCCE7D004804CA /* pixels.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pixels.jpeg; sourceTree = "<group>"; };
 		2E22431927FCD0AA004804CA /* DefaultStoreMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStoreMock.swift; sourceTree = "<group>"; };
-		2E22431B27FCD2E7004804CA /* Storable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storable.swift; sourceTree = "<group>"; };
+		2E22431B27FCD2E7004804CA /* FileSystemStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemStorable.swift; sourceTree = "<group>"; };
 		2E22431F27FCEA4D004804CA /* ServiceUserFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceUserFetcherTests.swift; sourceTree = "<group>"; };
 		2E22432127FCEAAE004804CA /* ImageServiceFetcherMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceFetcherMock.swift; sourceTree = "<group>"; };
 		2E22432627FCFEF5004804CA /* RandomAppTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = RandomAppTests.xctestplan; path = RandomApp.xcodeproj/RandomAppTests.xctestplan; sourceTree = "<group>"; };
@@ -149,6 +161,8 @@
 		2E25E39C27F87EF1002B3AD0 /* RandomUsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUsersResponse.swift; sourceTree = "<group>"; };
 		2E25E39F27F88759002B3AD0 /* RandomUsers.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RandomUsers.json; sourceTree = "<group>"; };
 		2E25E3A127F88992002B3AD0 /* JSONReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONReader.swift; sourceTree = "<group>"; };
+		2E5C723027FF894000F60021 /* UserPersistentDBStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPersistentDBStorable.swift; sourceTree = "<group>"; };
+		2E5C723227FF8ADF00F60021 /* BaseDBFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDBFetcher.swift; sourceTree = "<group>"; };
 		2E6ED0EF27F991AA004C6ADA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2E6ED0F127F99227004C6ADA /* UserCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellView.swift; sourceTree = "<group>"; };
 		2E75FE3627FA4638005652BD /* ServiceUserFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceUserFetchable.swift; sourceTree = "<group>"; };
@@ -209,13 +223,33 @@
 			path = modules;
 			sourceTree = "<group>";
 		};
+		2E132ABA27FE0B7F00F9EF1C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2E132AC627FE0E5800F9EF1C /* PersistenceDBStorerContainer.swift */,
+				2E132ABF27FE0BDA00F9EF1C /* Models */,
+				2E132AB627FE073F00F9EF1C /* UserAppModel.xcdatamodeld */,
+				2E5C723227FF8ADF00F60021 /* BaseDBFetcher.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		2E132ABF27FE0BDA00F9EF1C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2E132AC027FE0C7300F9EF1C /* UserCD+CoreDataClass.swift */,
+				2E132AC127FE0C7300F9EF1C /* UserCD+CoreDataProperties.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		2E22430627FCC5B6004804CA /* ServiceImageFetcher */ = {
 			isa = PBXGroup;
 			children = (
 				2E22430727FCC5D7004804CA /* ServiceImageFetchable.swift */,
 				2E22430927FCC5FE004804CA /* ServiceImageFetcher.swift */,
 				2E22430B27FCC618004804CA /* String+MD5.swift */,
-				2E22431B27FCD2E7004804CA /* Storable.swift */,
+				2E22431B27FCD2E7004804CA /* FileSystemStorable.swift */,
 			);
 			path = ServiceImageFetcher;
 			sourceTree = "<group>";
@@ -225,6 +259,7 @@
 			children = (
 				2E22430E27FCC817004804CA /* ServiceImageFetcherTests.swift */,
 				2E22431F27FCEA4D004804CA /* ServiceUserFetcherTests.swift */,
+				2E1B974C27FF6DA000179BAB /* UserPersistentDBStorable.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -252,6 +287,7 @@
 			children = (
 				2E75FE3627FA4638005652BD /* ServiceUserFetchable.swift */,
 				2E22432727FD00FF004804CA /* ServiceUserFetcher.swift */,
+				2E5C723027FF894000F60021 /* UserPersistentDBStorable.swift */,
 			);
 			path = ServiceUserFetcher;
 			sourceTree = "<group>";
@@ -292,6 +328,7 @@
 		2E25E33327F7BB48002B3AD0 /* RandomApp */ = {
 			isa = PBXGroup;
 			children = (
+				2E132ABA27FE0B7F00F9EF1C /* CoreData */,
 				2E75FE3527FA45FC005652BD /* Services */,
 				2E11717C27F9178B00B7ED02 /* modules */,
 				2E25E33427F7BB48002B3AD0 /* RandomAppApp.swift */,
@@ -658,15 +695,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E132AC727FE0E5800F9EF1C /* PersistenceDBStorerContainer.swift in Sources */,
 				2E25E33727F7BB48002B3AD0 /* UserListView.swift in Sources */,
-				2E22431C27FCD2E7004804CA /* Storable.swift in Sources */,
+				2E22431C27FCD2E7004804CA /* FileSystemStorable.swift in Sources */,
 				2E22430A27FCC5FE004804CA /* ServiceImageFetcher.swift in Sources */,
 				2E22430827FCC5D7004804CA /* ServiceImageFetchable.swift in Sources */,
 				2E22430C27FCC618004804CA /* String+MD5.swift in Sources */,
 				2E75FE3727FA4638005652BD /* ServiceUserFetchable.swift in Sources */,
 				2E22432827FD00FF004804CA /* ServiceUserFetcher.swift in Sources */,
+				2E5C723327FF8ADF00F60021 /* BaseDBFetcher.swift in Sources */,
+				2E132AC227FE0C7300F9EF1C /* UserCD+CoreDataClass.swift in Sources */,
 				2E11717E27F9201A00B7ED02 /* UserListViewModel.swift in Sources */,
+				2E132AB827FE073F00F9EF1C /* UserAppModel.xcdatamodeld in Sources */,
+				2E5C723127FF894000F60021 /* UserPersistentDBStorable.swift in Sources */,
 				2E25E33527F7BB48002B3AD0 /* RandomAppApp.swift in Sources */,
+				2E132AC327FE0C7300F9EF1C /* UserCD+CoreDataProperties.swift in Sources */,
 				2E6ED0F227F99227004C6ADA /* UserCellView.swift in Sources */,
 				2E6ED0F027F991AA004C6ADA /* User.swift in Sources */,
 			);
@@ -678,6 +721,7 @@
 			files = (
 				2E22432427FCF04F004804CA /* JSONReader.swift in Sources */,
 				2E22432027FCEA4D004804CA /* ServiceUserFetcherTests.swift in Sources */,
+				2E1B974D27FF6DA000179BAB /* UserPersistentDBStorable.swift in Sources */,
 				2E22431527FCCB73004804CA /* Spy.swift in Sources */,
 				2E22432227FCEAAE004804CA /* ImageServiceFetcherMock.swift in Sources */,
 				2E25E34627F7BB48002B3AD0 /* RandomAppTests.swift in Sources */,
@@ -1164,6 +1208,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2E132AB627FE073F00F9EF1C /* UserAppModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2E132AB727FE073F00F9EF1C /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 2E132AB727FE073F00F9EF1C /* CoreData.xcdatamodel */;
+			path = UserAppModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2E25E32927F7BB48002B3AD0 /* Project object */;
 }

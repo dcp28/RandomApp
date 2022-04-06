@@ -10,9 +10,9 @@ import Foundation
 // MARK: - Result
 
 public struct Result: Codable, Equatable {
-    let gender: Gender
+    public let gender: Gender
     public let name: Name
-    let location: Location
+    public let location: Location
     public let email: String
     public let login: Login
     let dob, registered: Dob
@@ -29,7 +29,7 @@ struct Dob: Codable, Equatable {
     let age: Int
 }
 
-enum Gender: String, Codable, Equatable {
+public enum Gender: String, Codable, Equatable {
     case female
     case male
 }

@@ -5,6 +5,7 @@
 //  Created by Random Inc. on 5/4/22.
 //
 
+import CoreData
 import Foundation
 import RandomAPI
 @testable import RandomApp
@@ -20,6 +21,28 @@ final class ServiceUserFetcherTests: XCTestCase {
         return try? JSONDecoder().decode(RandomUserResponse.self, from: jsonReader.contentData).results
     }
 
+    private var persistentDBStorer: UserPersistentDBStorer!
+
+    override func setUp() {
+        let persistentStoreDescription = NSPersistentStoreDescription()
+        persistentStoreDescription.type = NSInMemoryStoreType
+        let container = NSPersistentContainer(
+            name: PersistenceDBStorerContainer.modelName
+        )
+
+        container.persistentStoreDescriptions = [persistentStoreDescription]
+
+        container.loadPersistentStores(completionHandler: { _, error in
+            guard let error = error else {
+                return
+            }
+
+            fatalError("Can't load persistentStore due to \(error)")
+        })
+
+        persistentDBStorer = UserPersistentDBStorer(context: container)
+    }
+
     func getDataImage(fileName: String) throws -> UIImage? {
         guard let path = Bundle(for: type(of: self)).path(forResource: fileName, ofType: "jpeg", inDirectory: nil) else {
             fatalError("Can't find json file")
@@ -33,7 +56,11 @@ final class ServiceUserFetcherTests: XCTestCase {
 
         apiMock.stubFetchUser = results ?? []
 
-        let service = ServiceUserFetcher(apiService: apiMock, imageServiceFetcher: imageServiceFetcherMock)
+        let service = ServiceUserFetcher(
+            apiService: apiMock,
+            imageServiceFetcher: imageServiceFetcherMock,
+            store: persistentDBStorer
+        )
 
         // MARK: When
 
@@ -52,7 +79,11 @@ final class ServiceUserFetcherTests: XCTestCase {
         apiMock.stubFetchUser = results ?? []
         imageServiceFetcherMock.stubGetImage = pixelsImgData?.pngData() ?? Data()
 
-        let service = ServiceUserFetcher(apiService: apiMock, imageServiceFetcher: imageServiceFetcherMock)
+        let service = ServiceUserFetcher(
+            apiService: apiMock,
+            imageServiceFetcher: imageServiceFetcherMock,
+            store: persistentDBStorer
+        )
 
         // MARK: When
 

@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol Storable {
+protocol FileSystemStorable {
     func saveElement(element: Data, to: URL) throws
     func loadElement(from url: URL) throws -> Data
 }
 
-final class DefaultStore: Storable {
+final class DefaultStore: FileSystemStorable {
     func saveElement(element: Data, to url: URL) throws {
         try element.write(to: url)
     }

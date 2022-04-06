@@ -9,29 +9,29 @@ import Foundation
 
 // MARK: - Location
 
-struct Location: Codable, Equatable {
-    let street: StreetOptions
-    let city: String
-    let state: String
-    let country: String?
-    let postcode: Postcode
-    let coordinates: Coordinates
-    let timezone: Timezone
+public struct Location: Codable, Equatable {
+    public let street: StreetOptions
+    public let city: String
+    public let state: String
+    public let country: String?
+    public let postcode: Postcode
+    public let coordinates: Coordinates
+    public let timezone: Timezone
 }
 
 // MARK: - Coordinates
 
-struct Coordinates: Codable, Equatable {
-    let latitude, longitude: String
+public struct Coordinates: Codable, Equatable {
+    public let latitude, longitude: String
 }
 
 // MARK: - Postcode
 
-enum Postcode: Codable, Equatable {
+public enum Postcode: Codable, Equatable {
     case integer(Int)
     case string(String)
 
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         if let content = try? container.decode(Int.self) {
             self = .integer(content)
@@ -44,7 +44,7 @@ enum Postcode: Codable, Equatable {
         throw DecodingError.typeMismatch(Postcode.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for Postcode"))
     }
 
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {
         case let .integer(content):
@@ -54,7 +54,7 @@ enum Postcode: Codable, Equatable {
         }
     }
 
-    static func == (lhs: Postcode, rhs: Postcode) -> Bool {
+    public static func == (lhs: Postcode, rhs: Postcode) -> Bool {
         switch (lhs, rhs) {
         case let (.string(lhsContent), .string(rhsContent)):
             return lhsContent == rhsContent
@@ -68,18 +68,18 @@ enum Postcode: Codable, Equatable {
 
 // MARK: - StreetOptions
 
-enum StreetOptions: Codable, Equatable {
+public enum StreetOptions: Codable, Equatable {
     case string(String)
     case street(Street)
 
     // MARK: - Street
 
-    struct Street: Codable, Equatable {
-        let number: Int
-        let name: String
+    public struct Street: Codable, Equatable {
+        public let number: Int
+        public let name: String
     }
 
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         if let content = try? container.decode(String.self) {
             self = .string(content)
@@ -92,7 +92,7 @@ enum StreetOptions: Codable, Equatable {
         throw DecodingError.typeMismatch(Postcode.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for Postcode"))
     }
 
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {
         case let .string(model):
@@ -102,7 +102,7 @@ enum StreetOptions: Codable, Equatable {
         }
     }
 
-    static func == (lhs: StreetOptions, rhs: StreetOptions) -> Bool {
+    public static func == (lhs: StreetOptions, rhs: StreetOptions) -> Bool {
         switch (lhs, rhs) {
         case let (.string(lhsContent), .string(rhsContent)):
             return lhsContent == rhsContent
@@ -116,8 +116,8 @@ enum StreetOptions: Codable, Equatable {
 
 // MARK: - Timezone
 
-struct Timezone: Codable, Equatable {
-    let offset, timezoneDescription: String
+public struct Timezone: Codable, Equatable {
+    public let offset, timezoneDescription: String
 
     enum CodingKeys: String, CodingKey {
         case offset

@@ -34,7 +34,7 @@ jobs:
               swift run -c release --package-path BuildTools swiftlint lint --strict .
             fi
         - name: Run tests
-          run: set -o pipefail && xcodebuild test -scheme RandomApp -project RandomApp.xcodeproj  -destination 'platform=iOS Simulator,name=iPhone 12' 2>&1 | xcpretty --color --report junit
+          run:  xcodebuild test -scheme RandomApp -project RandomApp.xcodeproj  -destination 'platform=iOS Simulator,name=iPhone 12' 2>&1 | xcpretty --color --report junit
         - name: Publish iOS Unit Test Results
           uses: EnricoMi/publish-unit-test-result-action/composite@v1
           if: always()
